@@ -65,7 +65,7 @@
       {"type": "video", "url": "https://www.youtube.com/watch?v=5llgmdXQSxA"},
       {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7503796897748897032"},
       {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7494167133023227144"},
-      {"type": "photo","url": "https://www.instagram.com/p/DKt19j7JsgZ/media"},
+      {"type": "photo","url": "https://www.instagram.com/p/DKt19j7JsgZ/media"}
     ]
   },
   {
@@ -88,7 +88,7 @@
       {"type": "video", "url": "https://www.youtube.com/watch?v=5llgmdXQSxA"},
       {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7369155201804045585"},
       {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7503796897748897032"},
-      {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7494167133023227144"},
+      {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7494167133023227144"}
     ]
   },
   {
@@ -112,7 +112,7 @@
       {"type":"video", "url": "https://www.instagram.com/reel/DEhogoLh1zJ/"},
       {"type": "video", "url": "https://www.tiktok.com/@limitless.sg/video/7369155201804045585"},
       {"type": "photo", "url": "https://instagram.fsin16-1.fna.fbcdn.net/v/t51.29350-15/466536330_1717691542349020_6701643140355103084_n.heic?stp=dst-jpg_e35_s320x320_tt6&_nc_ht=instagram.fsin16-1.fna.fbcdn.net&_nc_cat=104&_nc_oc=Q6cZ2QG7X40-se3reuTcVM18FgLlSIZJFL3gK_F0tWbE9RhXstWDf6GHUujyJhtdhtLmxUE&_nc_ohc=uAE1Ks68KFcQ7kNvwGjlPjZ&_nc_gid=OVTx__jWXvL5TrPSUFmuMQ&edm=AGenrX8BAAAA&ccb=7-5&oh=00_AfMnBqt8RDivCo4m9ept4Z-fgM0VuRfC0kEzNq9dQTQf7w&oe=6866CD36&_nc_sid=ed990e"},
-      {"type": "photo", "url": "https://scontent.fsin16-1.fna.fbcdn.net/v/t39.30808-6/488187961_1107375888092115_2274006350235495732_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=z2miKFgTSn0Q7kNvwENrIvH&_nc_oc=AdklRvbTddi4Ug1a3PS_GU19xveKVWA2Te0xBqE4mbPt12JOB5_DmfxCMnz-32pajJY&_nc_zt=23&_nc_ht=scontent.fsin16-1.fna&_nc_gid=Uc7RbT1uAx3XrE6Kbhbmbg&oh=00_AfOXx23rIAvPez1KAEHoT9zWg96wzpyDjknG5jvCSe8Y5g&oe=6866F99B"},
+      {"type": "photo", "url": "https://scontent.fsin16-1.fna.fbcdn.net/v/t39.30808-6/488187961_1107375888092115_2274006350235495732_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=z2miKFgTSn0Q7kNvwENrIvH&_nc_oc=AdklRvbTddi4Ug1a3PS_GU19xveKVWA2Te0xBqE4mbPt12JOB5_DmfxCMnz-32pajJY&_nc_zt=23&_nc_ht=scontent.fsin16-1.fna&_nc_gid=Uc7RbT1uAx3XrE6Kbhbmbg&oh=00_AfOXx23rIAvPez1KAEHoT9zWg96wzpyDjknG5jvCSe8Y5g&oe=6866F99B"}
     ]
   },
   {
@@ -134,7 +134,7 @@
     "gallery": [
       {"type": "video", "url": "https://www.youtube.com/watch?v=jGoQ-PN4AtA"},
       {"type": "video" ,"url":"https://www.tiktok.com/@trybesg/video/7385866623254613264"},
-      {"type": "video", "url": "https://www.tiktok.com/@trybesg/video/7374362473316748552"},
+      {"type": "video", "url": "https://www.tiktok.com/@trybesg/video/7374362473316748552"}
     ]
   },
   {
@@ -155,7 +155,7 @@
     "org_website": "https://trybe.org/",
     "gallery": [
       {"type": "video", "url": "https://www.youtube.com/watch?v=lEK1AdWGMmE"},
-      {"type": "video", "url": "https://www.instagram.com/reel/CuzMTfPxRlR/"},
+      {"type": "video", "url": "https://www.instagram.com/reel/CuzMTfPxRlR/"}
     ]
   },
   {
@@ -256,7 +256,7 @@
     "location": null,
     "cost": "Free",
     "confidential": true,
-    "anonymous": true,,
+    "anonymous": true,
     "availability": "Available anytime",
     "opening_hours": "24/7",
     "tags": ["help"],
