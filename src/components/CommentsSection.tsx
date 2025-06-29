@@ -2,7 +2,7 @@ import CommentAdd from "./CommentAdd";
 import CommentDisplay from "./CommentDisplay";
 import { Comment } from "@/types/comments";
 
-const comments: Comment[] = [
+export const comments: Comment[] = [
     {
         id: 1,
         avatar: "https://upload.wikimedia.org/wikipedia/en/2/28/Pok%C3%A9mon_Bulbasaur_art.png",
@@ -23,7 +23,7 @@ const comments: Comment[] = [
 
 export default function CommentsSection() {
 	return (
-		<div className="my-2">
+		<div>
 			<h2 className="text-md font-semibold">What others are saying...</h2>
 			{comments.map((comment) => (
 				<CommentDisplay key={comment.id} comment={comment} />
