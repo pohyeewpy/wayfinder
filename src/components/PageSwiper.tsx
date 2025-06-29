@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import ScrollingTopToolbar from "./ScrollingTopToolbar";
 
 // Dummy pages for testing
 function Page1() {
@@ -35,23 +36,27 @@ const pages = [
 
 export default function PageSwiper() {
   const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState<number | null>(null);
 
   const paginate = (newDirection: number) => {
     setPage((prev) => {
       const next = prev + newDirection;
       if (next < 0 || next >= pages.length) return prev;
+      setDirection(newDirection);
       return next;
     });
   };
 
   return (
     <div className="relative w-full h-full overflow-hidden">
+      <ScrollingTopToolbar page={page} pages={pages} paginate={paginate} />
+      <div className="w-full h-full pt-14 overflow-auto touch-pan-x touch-pan-y">
       <motion.div
         key={page}
         className="absolute w-full h-full"
-        initial={page === 0 ? false : { x: 300 }} // No animation on first render
+        initial={{ x: !direction ? 0 : direction > 0 ? 300 : -300 }}
         animate={{ x: 0 }}
-        exit={{ x: -300 }}
+        exit={{ x: !direction ? 0 : direction > 0 ? 300 : -300 }}
         transition={{ type: "spring", stiffness: 50 }}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
@@ -59,9 +64,11 @@ export default function PageSwiper() {
           if (info.offset.x < -100) paginate(1);
           else if (info.offset.x > 100) paginate(-1);
         }}
+        style={{ top: 0 }}
       >
         {pages[page]}
       </motion.div>
+      </div>
     </div>
   );
 }
