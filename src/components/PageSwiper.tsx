@@ -1,52 +1,108 @@
 "use client";
-import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Keyboard, Virtual } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/virtual';
+
 import ScrollingTopToolbar from "./ScrollingTopToolbar";
 import { CurrentResourceContext } from "./CurrentResourceProvider";
 import ResourcePage from "./ResourcePage";
 
 export default function PageSwiper() {
-  const [direction, setDirection] = useState<number | null>(null);
-
+  const swiperRef = useRef<SwiperType | null>(null);
+  
   const ctx = useContext(CurrentResourceContext);
+
+  const { filtered, currentIndex, prev, next } = ctx || {};
+
+  // Update swiper when currentIndex changes externally (e.g., from toolbar)
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.activeIndex !== currentIndex) {
+      swiperRef.current.slideTo(currentIndex);
+    }
+  }, [currentIndex]);
+  
   if (!ctx || ctx.filtered.length === 0) return null;
 
-  const { filtered, currentIndex, next, prev } = ctx;
-
-  const paginate = (newDirection: number) => {
-    setDirection(newDirection);
-    if (newDirection > 0) {
-      next();
-    }
-    else if (newDirection < 0) {
+  const handleSlideChange = (swiper: SwiperType) => {
+    const newIndex = swiper.activeIndex;
+    if (newIndex < currentIndex) {
       prev();
+    } else if (newIndex > currentIndex) {
+      next();
     }
   };
 
+  const paginate = (direction: number) => {
+    if (!swiperRef.current) return;
+    
+    if (direction > 0) {
+      swiperRef.current.slideNext();
+    } else if (direction < 0) {
+      swiperRef.current.slidePrev();
+    }
+  };
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <ScrollingTopToolbar resourceId={currentIndex} numResources={filtered.length} paginate={paginate} />
-      <div className="w-full h-full pt-14 overflow-auto touch-pan-x touch-pan-y">
-        <motion.div
-          key={currentIndex}
-          className="absolute w-full h-full"
-          initial={{ x: !direction ? 0 : direction > 0 ? 300 : -300 }}
-          animate={{ x: 0 }}
-          exit={{ x: !direction ? 0 : direction > 0 ? 300 : -300 }}
-          transition={{ type: "spring", stiffness: 50 }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={(e, info) => {
-            if (info.offset.x < -100) paginate(-1);
-            else if (info.offset.x > 100) paginate(1);
+      <ScrollingTopToolbar 
+        resourceId={currentIndex} 
+        numResources={filtered.length} 
+        paginate={paginate} 
+      />
+      
+      <div className="w-full h-full pt-14">
+        <Swiper
+          modules={[Navigation, Keyboard, Virtual]}
+          spaceBetween={0}
+          slidesPerView={1}
+          initialSlide={currentIndex}
+          virtual={{
+            enabled: true,
+            addSlidesBefore: 1,
+            addSlidesAfter: 1,
           }}
-          style={{ top: 0 }}
+          keyboard={{
+            enabled: true,
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={handleSlideChange}
+          className="w-full h-full"
+          style={{
+            '--swiper-navigation-color': '#000',
+            '--swiper-navigation-size': '24px',
+          } as React.CSSProperties}
+          speed={300}
+          touchRatio={1}
+          touchAngle={45}
+          threshold={10}
+          longSwipes={true}
+          longSwipesRatio={0.5}
+          longSwipesMs={300}
+          followFinger={true}
+          allowTouchMove={true}
+          resistance={true}
+          resistanceRatio={0.85}
         >
-          <div className="pt-14">
-            <ResourcePage resource={ctx.getCurrentResource()} />
-          </div>
-        </motion.div>
+          {filtered.map((resource, index) => (
+            <SwiperSlide 
+              key={resource.id || index} 
+              virtualIndex={index}
+              className="h-full overflow-auto"
+            >
+              <div className="w-full h-full">
+                <ResourcePage resource={resource} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
