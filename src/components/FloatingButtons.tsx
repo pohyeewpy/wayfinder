@@ -6,7 +6,7 @@ import styles from './FloatingButtons.module.css';
 
 const FloatingButtons = () => {
   const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(89);
+  const [likeCount, setLikeCount] = useState(0);
 
   const handleLike = () => {
     if (isLiked) {
