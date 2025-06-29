@@ -33,7 +33,7 @@ const pages = [
   <Page3 key="page3" />
 ];
 
-export default function SwipePages() {
+export default function PageSwiper() {
   const [page, setPage] = useState(0);
 
   const paginate = (newDirection: number) => {
@@ -49,7 +49,7 @@ export default function SwipePages() {
       <motion.div
         key={page}
         className="absolute w-full h-full"
-        initial={{ x: 300 }}
+        initial={page === 0 ? false : { x: 300 }} // No animation on first render
         animate={{ x: 0 }}
         exit={{ x: -300 }}
         transition={{ type: "spring", stiffness: 50 }}
