@@ -1,3 +1,4 @@
+import CommentAdd from "./CommentAdd";
 import CommentDisplay from "./CommentDisplay";
 import { Comment } from "@/types/comments";
 
@@ -23,10 +24,11 @@ const comments: Comment[] = [
 export default function CommentsSection() {
 	return (
 		<div>
-			<h2 className="text-lg font-medium">What others say</h2>
+			<h2 className="text-md font-bold">What others say</h2>
 			{comments.map((comment) => (
 				<CommentDisplay key={comment.id} comment={comment} />
 			))}
+            <CommentAdd />
 		</div>
 	);
 }
