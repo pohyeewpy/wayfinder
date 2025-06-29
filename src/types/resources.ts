@@ -1,0 +1,17 @@
+export type ResourceGalleryItem = {
+  type: "video" | "photo";
+  url: string;
+};
+
+export type Resource = {
+  id: number;
+  programme_name: string;
+  organization_name: string;
+  short_programme_description: string;
+  targeted_age_range: string;
+  modality: string;
+  location: string;
+  cost: string;
+  confidential: boolean;
+  anonymous: boolean;
+};
