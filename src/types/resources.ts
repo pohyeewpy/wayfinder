@@ -15,4 +15,5 @@ export type Resource = {
   tags: string[];
   confidential: boolean;
   anonymous: boolean;
+  opening_hours: string;
 };
