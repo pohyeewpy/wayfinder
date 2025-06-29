@@ -1,5 +1,6 @@
 import { Resource } from "@/types/resources";
 import KeyMetricsSection from "./KeyMetricsSection";
+import CommentsSection from "./CommentsSection";
 
 export default function ResourcePage({ resource }: { resource: Resource | null }) {
   if (!resource) {
@@ -10,6 +11,7 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
       <h1>{resource.programme_name}</h1>
       <p>{resource.short_programme_description}</p>
       <KeyMetricsSection resource={resource} />
+      <CommentsSection />
     </div>
   );
 }
