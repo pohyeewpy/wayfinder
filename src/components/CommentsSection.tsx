@@ -23,8 +23,8 @@ const comments: Comment[] = [
 
 export default function CommentsSection() {
 	return (
-		<div>
-			<h2 className="text-md font-bold">What others say</h2>
+		<div className="my-2">
+			<h2 className="text-md font-semibold">What others are saying...</h2>
 			{comments.map((comment) => (
 				<CommentDisplay key={comment.id} comment={comment} />
 			))}

@@ -4,8 +4,8 @@ import CommentLikes from "./CommentLikes";
 
 export default function CommentDisplay({ comment }: { comment: Comment }) {
   return (
-    <div className="relative flex items-start space-x-6 px-4 py-2">
-      <div className="w-18 flex justify-center">
+    <div className="relative flex items-start space-x-4 p-2 pr-10">
+      <div className="flex justify-center">
         <Avatar className="w-12 h-12 border-2 border-amber-400">
           <AvatarImage src={comment.avatar} alt={comment.name} />
           <AvatarFallback>{comment.name}</AvatarFallback>
