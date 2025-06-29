@@ -5,11 +5,12 @@ import { createContext, ReactNode, useReducer, useEffect } from "react";
 export const CurrentResourceContext = createContext<{
   resources: Resource[];
   filtered: Resource[];
-  currentIndex: number | null; // Use null to indicate no current resource selected.
+  currentIndex: number;
   filter: (predicate: (r: Resource) => boolean) => void;
   next: () => void;
   prev: () => void;
   reset: () => void;
+  getCurrentResource: () => Resource | null;
 }>(null!); // Non-null assertion since this context will always be provided by the provider component.
 
 type ResourceState = {
@@ -65,6 +66,10 @@ export function CurrentResourceProvider({ children }: { children: ReactNode }) {
     next: () => dispatch({ type: "NEXT" }),
     prev: () => dispatch({ type: "PREV" }),
     reset: () => dispatch({ type: "RESET" }),
+    getCurrentResource: () => {
+      if (state.currentIndex < 0 || state.currentIndex >= state.filtered.length) return null;
+      return state.filtered[state.currentIndex];
+    },
   };
 
   return (
