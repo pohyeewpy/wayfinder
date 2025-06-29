@@ -1,12 +1,17 @@
 "use client";
 import { CurrentResourceProvider } from "@/components/CurrentResourceProvider";
 import SupportGrid from "@/components/SupportGrid";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <CurrentResourceProvider>
+      <Header />
       <div>
-        <h1>How are you feeling today?</h1>
+        <div className="text-center m-10">
+          <h2 className="text-xl font-semibold text-gray-800">What's hardest right now?</h2>
+          <p className="text-sm text-gray-500 mt-1">Let's find resources that might help</p>
+        </div>
         <SupportGrid />
       </div>
     </CurrentResourceProvider>

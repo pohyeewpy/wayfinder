@@ -12,6 +12,7 @@ export type Resource = {
   modality: string;
   location: string;
   cost: string;
+  tags: string[];
   confidential: boolean;
   anonymous: boolean;
 };

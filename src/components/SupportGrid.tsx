@@ -6,7 +6,7 @@ const options = [
   { emoji: '😵', label: 'Burnout & Stress', tag: 'Burnout', color: 'bg-red-100'},
   { emoji: '💙', label: 'Feeling Down', tag: 'Depressed', color: 'bg-orange-100'},
   { emoji: '🏡', label: 'Family Issues', tag: 'Family', color: 'bg-yellow-100'},
-  { emoji: '📚', label: 'School Pressure', tag: 'Academic', color: 'bg-green-100'},
+  { emoji: '📚', label: 'School Pressure', tag: 'career', color: 'bg-green-100'},
 ];
 
 export default function SupportGrid() {
