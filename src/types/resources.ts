@@ -14,4 +14,5 @@ export type Resource = {
   cost: string;
   confidential: boolean;
   anonymous: boolean;
+  opening_hours: string;
 };

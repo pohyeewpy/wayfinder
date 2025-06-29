@@ -2,6 +2,7 @@ import { Resource } from "@/types/resources";
 import KeyMetricsSection from "./KeyMetricsSection";
 import CommentsSection from "./CommentsSection";
 import FeaturedCommentSection from "./FeaturedCommentSection";
+import OpeningHoursAddressSection from "./OpeningHoursAddressSection";
 
 const featuredComment = {
   id: 1,
@@ -22,6 +23,7 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
       <p>{resource.short_programme_description}</p>
       <KeyMetricsSection resource={resource} />
       <FeaturedCommentSection comment={featuredComment} />
+      <OpeningHoursAddressSection resource={resource} />
       <CommentsSection />
     </div>
   );
