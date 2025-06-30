@@ -31,7 +31,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
           className="rounded-lg"
           nested={true}
           grabCursor={true}
-          preventInteractionOnTransition={true}
+          touchMoveStopPropagation={true}
           onTouchStart={(swiper, event) => {
             // Prevent parent swiper from swiping when touching this swiper
             event.stopPropagation();
