@@ -21,13 +21,14 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
   }
   return (
     <div className="w-full h-full px-8 flex flex-col items-start space-y-8">
-      <div className="flex flex-col items-start">
-        <h1 className="text-xl font-semibold">{resource.programme_name}</h1>
+      <div className="flex flex-col items-start w-full">
+        <h1 className="text-lg font-semibold truncate w-full" title={resource.programme_name}>{resource.programme_name}</h1>
         <a 
           href={resource.org_website} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-sm text-amber-500 hover:underline"
+          className="text-sm text-amber-500 hover:underline truncate w-full"
+          title={resource.organization_name}
         >
           {resource.organization_name}
         </a>
