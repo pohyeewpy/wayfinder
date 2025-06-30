@@ -1,7 +1,3 @@
-'use client';
-
-import { Heart } from 'lucide-react';
-import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Resource } from '@/types/resources';
 import CommentLikes from './CommentLikes';
@@ -11,8 +7,6 @@ export default function ResourcePageBottomToolbar({
 }: {
   resource: Resource | null;
 }) {
-  const [isLiked, setIsLiked] = useState(false);
-
   if (!resource) return null;
 
   return (
