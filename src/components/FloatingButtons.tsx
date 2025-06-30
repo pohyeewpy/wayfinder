@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { Heart } from 'lucide-react';
 import styles from './FloatingButtons.module.css';
 
 const FloatingButtons = () => {
@@ -22,13 +22,11 @@ const FloatingButtons = () => {
       <button className={styles.getStartedBtn}>Get Started</button>
       
       <div className={styles.likeContainer}>
-        <button 
-          className={`${styles.likeBtn} ${isLiked ? styles.liked : ''}`}
-          onClick={handleLike}
-          aria-label={isLiked ? 'Unlike' : 'Like'}
-        >
-          {isLiked ? <FaHeart /> : <FaRegHeart />}
-        </button>
+      <Heart
+            className={`h-5 w-5 text-pink-400 cursor-pointer`}
+            fill={isLiked ? "currentColor" : "none"}
+            onClick={() => setIsLiked(!isLiked)}
+        />
         <span className={styles.likeCount}>{likeCount}</span>
       </div>
     </div>
