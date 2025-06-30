@@ -15,7 +15,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
   if (!filteredItems?.length) {
     filteredItems.push({
       type: 'photo',
-      url: 'https://cbub.comicbookuniversebattles.com/static/images/cbub/cbub_contender_image/2/11740/11740.png',
+      url: 'https://images.unsplash.com/vector-1739203267529-6e1852ec52f5?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     });
   }
 
