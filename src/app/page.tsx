@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import PageSwiper from "@/components/PageSwiper";
 import { useContext } from "react";
 import { CurrentResourceContext } from "@/components/CurrentResourceProvider";
+import ResourcePageBottomToolbar from "@/components/ResourcePageBottomToolbar";
 
 function ResourceSection() {
   const ctx = useContext(CurrentResourceContext);

@@ -12,6 +12,7 @@ import 'swiper/css/virtual';
 import ScrollingTopToolbar from "./ScrollingTopToolbar";
 import { CurrentResourceContext } from "./CurrentResourceProvider";
 import ResourcePage from "./ResourcePage";
+import ResourcePageBottomToolbar from "./ResourcePageBottomToolbar";
 
 export default function PageSwiper() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -56,7 +57,7 @@ export default function PageSwiper() {
         paginate={paginate} 
       />
       
-      <div className="w-full h-full pt-14">
+      <div className="w-full h-full pt-14 pb-20">
         <Swiper
           modules={[Navigation, Keyboard, Virtual]}
           spaceBetween={0}
@@ -103,6 +104,7 @@ export default function PageSwiper() {
             </SwiperSlide>
           ))}
         </Swiper>
+        <ResourcePageBottomToolbar resource={ctx.getCurrentResource()} />
       </div>
     </div>
   );

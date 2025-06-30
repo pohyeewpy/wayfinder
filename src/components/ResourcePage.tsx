@@ -3,6 +3,8 @@ import KeyMetricsSection from "./KeyMetricsSection";
 import CommentsSection from "./CommentsSection";
 import FeaturedCommentSection from "./FeaturedCommentSection";
 import OpeningHoursAddressSection from "./OpeningHoursAddressSection";
+import ResourcePageBottomToolbar from "./ResourcePageBottomToolbar";
+import ResourceGallery from "./ResourceGallery";
 
 const featuredComment = {
   id: 1,
@@ -25,6 +27,9 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
       <KeyMetricsSection resource={resource} />
       <FeaturedCommentSection comment={featuredComment} />
       <OpeningHoursAddressSection resource={resource} />
+      {resource.gallery && resource.gallery.length > 0 && (
+        <ResourceGallery items={resource.gallery} />
+      )}
       <CommentsSection />
     </div>
   );
