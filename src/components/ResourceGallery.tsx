@@ -31,11 +31,11 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
           className="rounded-lg"
           nested={true}
           grabCursor={true}
-          touchMoveStopPropagation={true}
-          onTouchStart={(swiper, event) => {
+          touchMoveStopPropagation={filteredItems.length > 1}
+          onTouchStart={filteredItems.length > 1 ? (swiper, event) => {
             // Prevent parent swiper from swiping when touching this swiper
             event.stopPropagation();
-          }}
+          } : undefined}
           style={{
             '--swiper-navigation-color': '#000',
             '--swiper-pagination-color': '#000',
