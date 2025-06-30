@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import PageSwiper from "@/components/PageSwiper";
 import { useContext } from "react";
 import { CurrentResourceContext } from "@/components/CurrentResourceProvider";
-import FloatingButton from '@/components/FloatingButton';
+import FloatingButton from '@/components/FloatingButtons';
 
 function ResourceSection() {
   const ctx = useContext(CurrentResourceContext);
