@@ -20,6 +20,7 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
   return (
     <div className="w-full h-full px-8 flex flex-col items-center space-y-8">
       <h1>{resource.programme_name}</h1>
+      <p className="text-xs">By <a href={resource.org_website}>{resource.organization_name}</a></p>
       <p>{resource.short_programme_description}</p>
       <KeyMetricsSection resource={resource} />
       <FeaturedCommentSection comment={featuredComment} />
