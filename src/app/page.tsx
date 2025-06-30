@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <CurrentResourceProvider>
       <Header />
-      <div className="mt-30">
+      <div className="mt-24">
         <ResourceSection />
       </div>
     </CurrentResourceProvider>

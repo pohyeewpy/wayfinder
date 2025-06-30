@@ -57,7 +57,7 @@ export default function PageSwiper() {
         paginate={paginate} 
       />
       
-      <div className="w-full min-h-full pt-14 pb-20">
+      <div className="w-full min-h-full pt-4 pb-20">
         <Swiper
           modules={[Navigation, Keyboard, Virtual]}
           spaceBetween={0}

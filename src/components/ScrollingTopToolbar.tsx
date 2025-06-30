@@ -9,7 +9,7 @@ type ScrollingTopToolbarProps = {
 export default function ScrollingTopToolbar({ resourceId, numResources, paginate }: ScrollingTopToolbarProps) {
     return (
         <div
-            className="fixed top-20 left-0 w-full flex items-center justify-between px-4 py-2 bg-white z-20 select-none"
+            className="fixed top-12 left-0 w-full flex items-center justify-between px-4 py-2 bg-white z-20 select-none"
             style={{ touchAction: "none", userSelect: "none" }}
         >
         <button
