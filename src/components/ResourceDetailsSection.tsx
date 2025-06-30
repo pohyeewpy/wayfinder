@@ -2,7 +2,7 @@ import { Resource } from "@/types/resources";
 import opening_hours from "opening_hours";
 import { Card } from "./ui/card";
 
-export default function OpeningHoursAddressSection({ resource }: { resource: Resource}) {
+export default function ResourceDetailsSection({ resource }: { resource: Resource}) {
   const hours = new opening_hours(resource.opening_hours);
 
 const DAY_MAP: Record<string, string> = {
@@ -50,6 +50,11 @@ const googleMapsUrl = resource.location
           </a>
       </div>
         )}
+    {resource.short_programme_description && (
+      <div className="mt-4">
+        <p className="text-gray-700">{resource.short_programme_description}</p>
+      </div>
+    )}
     </Card>
   );
 }

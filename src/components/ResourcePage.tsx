@@ -2,7 +2,7 @@ import { Resource } from "@/types/resources";
 import KeyMetricsSection from "./KeyMetricsSection";
 import CommentsSection from "./CommentsSection";
 import FeaturedCommentSection from "./FeaturedCommentSection";
-import OpeningHoursAddressSection from "./OpeningHoursAddressSection";
+import ResourceDetailsSection from "./ResourceDetailsSection";
 import ResourceGallery from "./ResourceGallery";
 
 const featuredComment = {
@@ -35,7 +35,7 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
       <ResourceGallery items={resource.gallery || []} />
       <KeyMetricsSection resource={resource} />
       <FeaturedCommentSection comment={featuredComment} />
-      <OpeningHoursAddressSection resource={resource} />
+      <ResourceDetailsSection resource={resource} />
       <CommentsSection />
     </div>
   );
