@@ -7,9 +7,17 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 export default function ResourceGallery({ items }: { items: ResourceGalleryItem[] }) {
-  if (!items?.length) return null;
+  const filteredItems = items.filter(item => item.type === 'photo'); // Only show photos for now
+  
+  if (!filteredItems?.length) {
+    filteredItems.push({
+      type: 'photo',
+      url: 'https://cbub.comicbookuniversebattles.com/static/images/cbub/cbub_contender_image/2/11740/11740.png',
+    });
+  }
 
   return (
     <div className="w-full">
@@ -34,23 +42,17 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
             '--swiper-navigation-size': '20px',
           } as React.CSSProperties}
         >
-          {items.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="aspect-video bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
-                {item.type === 'photo' ? (
-                  <img
+                  <Image
                     src={item.url}
                     alt={`Gallery image ${index + 1}`}
                     className="w-full h-full object-contain"
                     loading="lazy"
+                    width={1000}
+                    height={1000}
                   />
-                ) : (
-                  <video
-                    src={item.url}
-                    controls
-                    className="w-full h-full object-contain"
-                  />
-                )}
               </div>
             </SwiperSlide>
           ))}
