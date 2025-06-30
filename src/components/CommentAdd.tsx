@@ -16,7 +16,7 @@ export default function CommentAdd() {
     }
     return (
         <>
-            <Label htmlFor="comment" className="pb-2 font-semibold">How was your own experience?</Label>
+            <Label htmlFor="comment" className="py-2 font-semibold">How was your own experience?</Label>
             <Textarea id="comment"/>
             <Button type="submit" className="mt-2" onClick={() => {
                 setHasSubmitted(true)
