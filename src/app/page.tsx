@@ -12,7 +12,6 @@ function ResourceSection() {
   if (!ctx) return null;
 
   const isFiltered = ctx.filtered.length !== ctx.resources.length;
-  console.log("isFiltred: ", isFiltered);
   return isFiltered ? (
     <PageSwiper />
   ) : (

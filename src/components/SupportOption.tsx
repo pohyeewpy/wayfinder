@@ -15,11 +15,6 @@ export default function SupportOption({ emoji, label, tag, color }: SupportOptio
 
   const handleOptionClick = (tag: string) => {
     filterByTag?.(tag);
-    console.log("Filter applied for tag:", tag);
-    setTimeout(() => {
-      console.log("Filtered list:", ctx?.filtered);
-      console.log("Filtered length:", ctx?.filtered.length);
-    }, 100);
   };
 
 
