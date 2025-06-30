@@ -7,6 +7,7 @@ export const CurrentResourceContext = createContext<{
   filtered: Resource[];
   currentIndex: number;
   filter: (predicate: (r: Resource) => boolean) => void;
+  filterByTag: (tag: string) => void;   
   next: () => void;
   prev: () => void;
   reset: () => void;
@@ -63,6 +64,12 @@ export function CurrentResourceProvider({ children }: { children: ReactNode }) {
     filtered: state.filtered,
     currentIndex: state.currentIndex,
     filter: (predicate: (r: Resource) => boolean) => dispatch({ type: "FILTER", predicate }),
+    filterByTag: (tag: string) =>
+      dispatch({
+        type: "FILTER",
+        predicate: (resource) =>
+          Array.isArray(resource.tags) && resource.tags.includes(tag),
+    }),
     next: () => dispatch({ type: "NEXT" }),
     prev: () => dispatch({ type: "PREV" }),
     reset: () => dispatch({ type: "RESET" }),
