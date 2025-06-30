@@ -37,7 +37,7 @@ export default function PageSwiper() {
     } else if (newIndex > currentIndex) {
       next();
     }
-  };
+  }
 
   const paginate = (direction: number) => {
     if (!swiperRef.current) return;
@@ -57,11 +57,12 @@ export default function PageSwiper() {
         paginate={paginate} 
       />
       
-      <div className="w-full h-full pt-14 pb-20">
+      <div className="w-full min-h-full pt-14 pb-20">
         <Swiper
           modules={[Navigation, Keyboard, Virtual]}
           spaceBetween={0}
           slidesPerView={1}
+          navigation={true}
           initialSlide={currentIndex}
           virtual={{
             enabled: true,
@@ -75,11 +76,13 @@ export default function PageSwiper() {
             swiperRef.current = swiper;
           }}
           onSlideChange={handleSlideChange}
-          className="w-full h-full"
+          className="w-full"
           style={{
             '--swiper-navigation-color': '#000',
             '--swiper-navigation-size': '24px',
+            height: 'auto', // Allow swiper to adjust its height based on content
           } as React.CSSProperties}
+          autoHeight={true}
           speed={300}
           touchRatio={1}
           touchAngle={45}
@@ -91,14 +94,42 @@ export default function PageSwiper() {
           allowTouchMove={true}
           resistance={true}
           resistanceRatio={0.85}
+          onSlideChangeTransitionEnd={() => {
+            // Reset scroll position to top after slide change with smooth animation
+            const activeSlide = swiperRef.current?.el.querySelector('.swiper-slide-active');
+            if (activeSlide) {
+              // Smoothly scroll the active slide to top
+              activeSlide.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+              
+              // Also smoothly scroll any child elements with overflow
+              const scrollableChildren = activeSlide.querySelectorAll('.overflow-auto, .overflow-y-auto');
+              scrollableChildren.forEach(element => {
+                if (element) {
+                  (element as HTMLElement).scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                }
+              });
+              
+              // Force window to smoothly scroll to top as well
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            }
+          }}
         >
           {filtered.map((resource, index) => (
             <SwiperSlide 
               key={resource.id || index} 
               virtualIndex={index}
-              className="h-full overflow-auto"
+              className="overflow-visible" // Change to visible to prevent fixed height
             >
-              <div className="w-full h-full">
+              <div className="w-full pb-4">
                 <ResourcePage resource={resource} />
               </div>
             </SwiperSlide>
