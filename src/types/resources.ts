@@ -16,4 +16,7 @@ export type Resource = {
   confidential: boolean;
   anonymous: boolean;
   opening_hours: string;
+  get_started_website?: string;
+  org_website?: string;
+  gallery?: ResourceGalleryItem[];
 };
