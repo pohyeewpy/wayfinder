@@ -35,7 +35,7 @@
     "anonymous": true,
     "availability": "Immediate, no appt/referral",
     "opening_hours": "Tu-Sa 12:00-20:00",
-    "tags": ["help"],
+    "tags": ["help", "anxiety"],
     "get_started_website": "https://www.imh.com.sg/CHAT/Pages/default.aspx",
     "org_website": "https://www.imh.com.sg/CHAT/Get-Help/Pages/default.aspx",
     "gallery": [
@@ -58,7 +58,7 @@
     "anonymous": false,
     "availability": "Referral or appointment needed",
     "opening_hours": "Mo-Fr",
-    "tags": ["help"],
+    "tags": ["help", "anxiety"],
     "get_started_website": "https://www.limitless.sg/talk",
     "org_website": "https://www.limitless.sg",
     "gallery": [
@@ -430,7 +430,7 @@
         "anonymous": false,
         "availability": "Walk-in",
         "opening_hours": "Tu, Fr 14:00-17:30",
-        "tags": ["community", "help"],
+        "tags": ["burnout""community", "help"],
         "get_started_website": "https://www.ygos.sg/youth-drop-in-centres",
         "org_website": "http://www.ygos.sg",
         "gallery": [
@@ -452,7 +452,7 @@
         "anonymous": false,
         "availability": "Walk-in",
         "opening_hours": "Tu, Th 14:00-17:30",
-        "tags": ["community", "help"],
+        "tags": ["burnout""community", "help"],
         "get_started_website": "https://www.ygos.sg/youth-drop-in-centres",
         "org_website": "http://www.ygos.sg",
         "gallery": [

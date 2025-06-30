@@ -11,12 +11,12 @@ interface SupportOptionProps {
 
 export default function SupportOption({ emoji, label, tag, color }: SupportOptionProps) {
   const ctx = useContext(CurrentResourceContext);
-  const filter = ctx?.filter;
+  const filterByTag = ctx?.filterByTag;
 
   const handleOptionClick = (tag: string) => {
-    filter?.((resource) => resource.tags.includes(tag));
-    console.log("set to", tag);
+    filterByTag?.(tag);
   };
+
 
   return (
     <div
