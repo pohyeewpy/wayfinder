@@ -33,12 +33,12 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
           {resource.organization_name}
         </a>
       </div>
-      <KeyMetricsSection resource={resource} />
-      <FeaturedCommentSection comment={featuredComment} />
-      <OpeningHoursAddressSection resource={resource} />
       {resource.gallery && resource.gallery.length > 0 && (
         <ResourceGallery items={resource.gallery} />
       )}
+      <KeyMetricsSection resource={resource} />
+      <FeaturedCommentSection comment={featuredComment} />
+      <OpeningHoursAddressSection resource={resource} />
       <CommentsSection />
     </div>
   );

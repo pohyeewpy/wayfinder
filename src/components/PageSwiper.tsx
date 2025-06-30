@@ -62,7 +62,7 @@ export default function PageSwiper() {
           modules={[Navigation, Keyboard, Virtual]}
           spaceBetween={0}
           slidesPerView={1}
-          navigation={true}
+          navigation={false}
           initialSlide={currentIndex}
           virtual={{
             enabled: true,
