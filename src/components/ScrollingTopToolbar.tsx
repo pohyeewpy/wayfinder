@@ -1,4 +1,7 @@
+"use client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CurrentResourceContext } from "./CurrentResourceProvider";
+import { useContext } from "react";
 
 type ScrollingTopToolbarProps = {
   resourceId: number;
@@ -7,6 +10,9 @@ type ScrollingTopToolbarProps = {
 };
 
 export default function ScrollingTopToolbar({ resourceId, numResources, paginate }: ScrollingTopToolbarProps) {
+    const ctx = useContext(CurrentResourceContext);
+    const { currentFilter } = ctx || {};
+
     return (
         <div
             className="fixed top-12 left-0 w-full flex items-center justify-between px-4 py-2 bg-white z-20 select-none"
@@ -22,6 +28,11 @@ export default function ScrollingTopToolbar({ resourceId, numResources, paginate
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
+        {currentFilter && (
+          <div>
+            <p className="text-gray-700">{currentFilter.name}</p>
+          </div>
+        )}
         <button
           onClick={() => paginate(1)}
           disabled={resourceId === numResources - 1}

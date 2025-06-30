@@ -1,19 +1,20 @@
-import SupportOption from './SupportOption';
+import SupportOptionButton, { SupportOption } from './SupportOptionButton';
+import { Tag } from "@/types/filters";
 
-const options = [
-  { emoji: '😰', label: 'Anxiety & Worry', tag: 'anxiety', color: 'bg-blue-100' },
-  { emoji: '😔', label: 'Feeling Alone', tag: 'community', color: 'bg-purple-100'},
-  { emoji: '😵', label: 'Burnout & Stress', tag: 'burnout', color: 'bg-red-100'},
-  { emoji: '💙', label: 'Feeling Down', tag: 'help', color: 'bg-orange-100'},
-  { emoji: '🏡', label: 'Family Issues', tag: 'home', color: 'bg-yellow-100'},
-  { emoji: '📚', label: 'Feel Directionless', tag: 'career', color: 'bg-green-100'},
+const options: SupportOption[] = [
+  { emoji: '😰', label: 'Anxiety & Worry', tag: Tag.Anxiety, color: 'bg-blue-100' },
+  { emoji: '😔', label: 'Feeling Alone', tag: Tag.Community, color: 'bg-purple-100'},
+  { emoji: '😵', label: 'Burnout & Stress', tag: Tag.Burnout, color: 'bg-red-100'},
+  { emoji: '💙', label: 'Feeling Down', tag: Tag.Help, color: 'bg-orange-100'},
+  { emoji: '🏡', label: 'Family Issues', tag: Tag.Home, color: 'bg-yellow-100'},
+  { emoji: '📚', label: 'Feel Directionless', tag: Tag.Career, color: 'bg-green-100'},
 ];
 
 export default function SupportGrid() {
   return (
     <section className="grid grid-cols-2 gap-4 px-4 pb-10">
       {options.map((opt, i) => (
-        <SupportOption key={i} emoji={opt.emoji} label={opt.label} tag={opt.tag} color={opt.color} />
+        <SupportOptionButton key={i} supportOption={opt} />
       ))}
     </section>
   );
