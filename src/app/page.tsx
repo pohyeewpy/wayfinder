@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import PageSwiper from "@/components/PageSwiper";
 import { useContext } from "react";
 import { CurrentResourceContext } from "@/components/CurrentResourceProvider";
+import FloatingButton from '@/components/FloatingButton';
 
 function ResourceSection() {
   const ctx = useContext(CurrentResourceContext);
@@ -31,6 +32,7 @@ export default function Home() {
       <Header />
       <div className="mt-30">
         <ResourceSection />
+        <FloatingButton />
       </div>
     </CurrentResourceProvider>
   );
