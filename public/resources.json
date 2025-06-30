@@ -430,10 +430,14 @@
         "anonymous": false,
         "availability": "Walk-in",
         "opening_hours": "Tu, Fr 14:00-17:30",
-        "tags": [],
-        "get_started_website": "",
+        "tags": ["community", "help"],
+        "get_started_website": "https://www.ygos.sg/youth-drop-in-centres",
         "org_website": "http://www.ygos.sg",
-        "gallery": []
+        "gallery": [
+          {"type":"video", "url": "https://www.instagram.com/reel/DKy8yQsx1vw/"},
+          {"type": "video", "url": "https://www.instagram.com/reel/C-H8WIxBSuG/"},
+          {"type": "video", "url":"https://www.instagram.com/reel/CY84k5drjqL/"}
+        ]
         },
         {
         "id": 22,
@@ -448,10 +452,15 @@
         "anonymous": false,
         "availability": "Walk-in",
         "opening_hours": "Tu, Th 14:00-17:30",
-        "tags": [],
-        "get_started_website": "",
+        "tags": ["community", "help"],
+        "get_started_website": "https://www.ygos.sg/youth-drop-in-centres",
         "org_website": "http://www.ygos.sg",
-        "gallery": []
+        "gallery": [
+          {"type":"video", "url": "https://www.instagram.com/reel/DK1FnWAxvDd/"},
+          {"type": "video", "url": "https://www.instagram.com/reel/DJ8uaugO6Ts/"},
+          {"type": "video", "url": "https://www.instagram.com/reel/DJtLpmLuUjl/"},
+          {"type": "video", "url": "https://www.instagram.com/reel/DEwDYOZBWmS/"}
+        ]
         },
         {
         "id": 23,
@@ -465,11 +474,14 @@
         "confidential": true,
         "anonymous": false,
         "availability": "Walk-in",
-        "opening_hours": "Tu, Fr 14:00-17:30",
-        "tags": [],
-        "get_started_website": "",
+        "opening_hours": "We, Fr 14:00-17:30",
+        "tags": ["community", "help"],
+        "get_started_website": "https://www.ygos.sg/youth-drop-in-centres",
         "org_website": "http://www.ygos.sg",
-        "gallery": []
+        "gallery": [
+          {"type": "video", "url":"https://www.instagram.com/reel/C9whJp4h_iN/"},
+          {"type":"video", "url": "https://www.instagram.com/reel/CY-xdXOlIFU/"}
+        ]
         },
         {
         "id": 24,
