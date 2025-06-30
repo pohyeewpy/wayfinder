@@ -1,5 +1,6 @@
 import { Resource } from "@/types/resources";
 import ResourceGallery from "@/components/ResourceGallery";
+import FloatingButton from '@/components/FloatingButtons';
 
 export default function ResourcePage({ 
   resource,
@@ -31,6 +32,7 @@ export default function ResourcePage({
           <ResourceGallery items={galleryItems} />
         </>
       )}
+      <FloatingButton />
     </div>
   );
 }
