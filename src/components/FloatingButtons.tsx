@@ -4,11 +4,9 @@ import { Heart } from 'lucide-react';
 import { useState } from 'react';
 
 export default function FloatingButton({
-  getStartedUrl,
-  resourceId
+  getStartedUrl
 }: {
   getStartedUrl?: string;
-  resourceId: number;
 }) {
   const [isLiked, setIsLiked] = useState(false);
 
