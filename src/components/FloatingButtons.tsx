@@ -1,36 +1,41 @@
 'use client';
 
-import { useState } from 'react';
 import { Heart } from 'lucide-react';
-import styles from './FloatingButtons.module.css';
+import { useState } from 'react';
 
-const FloatingButtons = () => {
+export default function FloatingButton({
+  getStartedUrl,
+  resourceId
+}: {
+  getStartedUrl?: string;
+  resourceId: number;
+}) {
   const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
-
-  const handleLike = () => {
-    if (isLiked) {
-      setLikeCount(prev => prev - 1);
-    } else {
-      setLikeCount(prev => prev + 1);
-    }
-    setIsLiked(!isLiked);
-  };
 
   return (
-    <div className={styles.buttonContainer}>
-      <button className={styles.getStartedBtn}>Get Started</button>
-      
-      <div className={styles.likeContainer}>
-      <Heart
-            className={`h-5 w-5 text-pink-400 cursor-pointer`}
-            fill={isLiked ? "currentColor" : "none"}
-            onClick={() => handleLike()}
+    <div className="fixed bottom-4 right-4 flex gap-3">
+      <button
+        onClick={() => setIsLiked(!isLiked)}
+        className="p-3 bg-white rounded-full shadow-lg hover:bg-gray-100"
+        aria-label={isLiked ? "Unlike this resource" : "Like this resource"}
+      >
+        <Heart 
+          size={24}
+          fill={isLiked ? "#ec4899" : "none"}
+          className={isLiked ? "text-pink-500" : "text-gray-500"}
         />
-        <span className={styles.likeCount}>{likeCount}</span>
-      </div>
+      </button>
+
+      {getStartedUrl && (
+        <a
+          href={getStartedUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-5 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 flex items-center"
+        >
+          Get Started
+        </a>
+      )}
     </div>
   );
-};
-
-export default FloatingButtons;
+}
