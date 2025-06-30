@@ -25,7 +25,7 @@ const FloatingButtons = () => {
       <Heart
             className={`h-5 w-5 text-pink-400 cursor-pointer`}
             fill={isLiked ? "currentColor" : "none"}
-            onClick={() => setIsLiked(!isLiked)}
+            onClick={() => handleLike()}
         />
         <span className={styles.likeCount}>{likeCount}</span>
       </div>
