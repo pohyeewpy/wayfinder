@@ -42,12 +42,6 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
             config={{
               youtube: {
                 playerVars: { showinfo: 1, rel: 0 }
-              },
-              tiktok: {
-                embedOptions: { 
-                  containerClass: 'tiktok-embed',
-                  blockOnConsent: true
-                }
               }
             }}
           />
