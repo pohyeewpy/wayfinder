@@ -3,16 +3,15 @@ import { ResourceGalleryItem } from '@/types/resources';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import ReactPlayer from 'react-player';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 
-const DEFAULT_IMAGE = {
-  type: 'photo' as const,
+const DEFAULT_IMAGE: ResourceGalleryItem = {
+  type: 'photo',
   url: 'https://images.unsplash.com/vector-1739203267529-6e1852ec52f5?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  alt: 'Default gallery image'
 };
 
 export default function ResourceGallery({ items }: { items: ResourceGalleryItem[] }) {
@@ -23,7 +22,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
       return (
         <Image
           src={item.url}
-          alt="Gallery image" // Removed reference to item.alt
+          alt={item.alt || 'Gallery image'}
           className="w-full h-full object-cover"
           loading="lazy"
           width={1200}
@@ -50,11 +49,6 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
                   rel: 0,
                   modestbranding: 1,
                 },
-              },
-              file: {
-                attributes: {
-                  controlsList: 'nodownload'
-                }
               }
             }}
           />
