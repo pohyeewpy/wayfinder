@@ -2,7 +2,7 @@
 import { ResourceGalleryItem } from '@/types/resources';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import ReactPlayer, { ReactPlayerProps } from 'react-player';
+import ReactPlayer from 'react-player';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -31,22 +31,20 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
         />
       );
     } else {
-      const playerProps: ReactPlayerProps = {
-        url: item.url,
-        width: '100%',
-        height: '100%',
-        controls: true,
-        style: { aspectRatio: '16/9' },
-        config: {
-          youtube: {
-            playerVars: { showinfo: 1, rel: 0 }
-          }
-        }
-      };
-
       return (
         <div className="w-full h-full">
-          <ReactPlayer {...playerProps} />
+          <ReactPlayer
+            url={item.url}
+            width="100%"
+            height="100%"
+            controls
+            style={{ aspectRatio: '16/9' }}
+            config={{
+              youtube: {
+                playerVars: { showinfo: 1, rel: 0 },
+              }
+            }}
+          />
         </div>
       );
     }
