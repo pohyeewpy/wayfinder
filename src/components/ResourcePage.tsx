@@ -2,7 +2,8 @@ import { Resource } from "@/types/resources";
 import KeyMetricsSection from "./KeyMetricsSection";
 import CommentsSection from "./CommentsSection";
 import FeaturedCommentSection from "./FeaturedCommentSection";
-import OpeningHoursAddressSection from "./OpeningHoursAddressSection";
+import ResourceDetailsSection from "./ResourceDetailsSection";
+import ResourceGallery from "./ResourceGallery";
 
 const featuredComment = {
   id: 1,
@@ -18,13 +19,23 @@ export default function ResourcePage({ resource }: { resource: Resource | null }
     return <div className="text-center text-gray-500">Something went wrong - try reselecting your filters!</div>;
   }
   return (
-    <div className="w-full h-full px-8 flex flex-col items-center space-y-8">
-      <h1>{resource.programme_name}</h1>
-      <p className="text-xs">By <a href={resource.org_website}>{resource.organization_name}</a></p>
-      <p>{resource.short_programme_description}</p>
+    <div className="w-full h-full px-8 flex flex-col items-start space-y-8">
+      <div className="flex flex-col items-start w-full">
+        <h1 className="text-lg font-semibold truncate w-full" title={resource.programme_name}>{resource.programme_name}</h1>
+        <a 
+          href={resource.org_website} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-sm text-amber-500 hover:underline truncate w-full"
+          title={resource.organization_name}
+        >
+          {resource.organization_name}
+        </a>
+      </div>
+      <ResourceGallery items={resource.gallery || []} />
       <KeyMetricsSection resource={resource} />
       <FeaturedCommentSection comment={featuredComment} />
-      <OpeningHoursAddressSection resource={resource} />
+      <ResourceDetailsSection resource={resource} />
       <CommentsSection />
     </div>
   );

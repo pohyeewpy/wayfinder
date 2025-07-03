@@ -1,31 +1,91 @@
 'use client';
 import { ResourceGalleryItem } from '@/types/resources';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import ReactPlayer from 'react-player/lazy';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import Image from 'next/image';
 
 export default function ResourceGallery({ items }: { items: ResourceGalleryItem[] }) {
-  if (!items?.length) return null;
+    const processedItems = items.length > 0 ? items : [
+    {
+      type: 'photo',
+      url: 'https://images.unsplash.com/vector-1739203267529-6e1852ec52f5?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    }
+  ];
+
+  const renderMedia = (item: ResourceGalleryItem) => {
+    if (item.type === 'photo') {
+      return (
+        <Image
+          src={item.url}
+          alt="Gallery image"
+          className="w-full h-full object-contain"
+          loading="lazy"
+          width={1000}
+          height={1000}
+        />
+      );
+    } else {
+      return (
+        <div className="w-full h-full">
+          <ReactPlayer
+            url={item.url}
+            width="100%"
+            height="100%"
+            controls
+            style={{ aspectRatio: '16/9' }}
+            config={{
+              youtube: {
+                playerVars: { showinfo: 1, rel: 0 }
+              },
+              tiktok: {
+                embedOptions: { 
+                  containerClass: 'tiktok-embed',
+                  blockOnConsent: true
+                }
+              }
+            }}
+          />
+        </div>
+      );
+    }
+  };
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold mb-4">Gallery</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {items.map((item, index) => (
-          <div key={index} className="aspect-square overflow-hidden rounded-lg bg-gray-100">
-            {item.type === 'photo' ? (
-              <img
-                src={item.url}
-                alt={`Gallery image ${index + 1}`}
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-                loading="lazy"
-              />
-            ) : (
-              <video
-                src={item.url}
-                controls
-                className="w-full h-full object-cover"
-              />
-            )}
-          </div>
-        ))}
+    <div className="w-full">
+      <div className="w-full">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={10}
+          slidesPerView={1}
+          navigation={true}
+          pagination={{ clickable: true }}
+          className="rounded-lg"
+          nested={true}
+          grabCursor={true}
+          touchMoveStopPropagation={processedItems.length > 1}
+          onTouchStart={processedItems.length > 1 ? (swiper, event) => {
+            event.stopPropagation();
+          } : undefined}
+          style={{
+            '--swiper-navigation-color': '#000',
+            '--swiper-pagination-color': '#000',
+            '--swiper-navigation-size': '20px',
+          } as React.CSSProperties}
+        >
+          {processedItems.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="aspect-video bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+                {renderMedia(item)}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

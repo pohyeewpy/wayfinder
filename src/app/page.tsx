@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import PageSwiper from "@/components/PageSwiper";
 import { useContext } from "react";
 import { CurrentResourceContext } from "@/components/CurrentResourceProvider";
+import SOSbutton from "@/components/SOSbutton";
 
 function ResourceSection() {
   const ctx = useContext(CurrentResourceContext);
@@ -21,6 +22,7 @@ function ResourceSection() {
         <p className="text-sm text-gray-500 mt-1">Let&apos;s find resources that might help</p>
       </div>
       <SupportGrid />
+      <SOSbutton />
     </div>
   );
 }
@@ -29,7 +31,7 @@ export default function Home() {
   return (
     <CurrentResourceProvider>
       <Header />
-      <div className="mt-30">
+      <div className="mt-24">
         <ResourceSection />
       </div>
     </CurrentResourceProvider>

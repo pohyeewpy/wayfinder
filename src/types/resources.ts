@@ -1,3 +1,5 @@
+import { Tag } from "./filters";
+
 export type ResourceGalleryItem = {
   type: "video" | "photo";
   url: string;
@@ -12,11 +14,12 @@ export type Resource = {
   modality: string;
   location: string;
   cost: string;
-  tags: string[];
+  tags: Tag[];
   confidential: boolean;
   anonymous: boolean;
   opening_hours: string;
   get_started_website?: string;
   org_website?: string;
   gallery?: ResourceGalleryItem[];
+  steps: string;
 };
