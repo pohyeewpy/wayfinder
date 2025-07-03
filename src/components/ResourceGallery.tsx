@@ -2,7 +2,7 @@
 import { ResourceGalleryItem } from '@/types/resources';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 
 // Import Swiper styles
 import 'swiper/css';
