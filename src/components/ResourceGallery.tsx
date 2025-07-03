@@ -2,7 +2,7 @@
 import { ResourceGalleryItem } from '@/types/resources';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import ReactPlayer from 'react-player/lazy'; // Using lazy loaded version
+import ReactPlayer from 'react-player'; // Regular import
 
 // Import Swiper styles
 import 'swiper/css';
@@ -27,7 +27,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
           className="w-full h-full object-cover"
           loading="lazy"
           width={1200}
-          height={675} // 16:9 aspect ratio
+          height={675}
           quality={85}
           onError={(e) => {
             (e.target as HTMLImageElement).src = DEFAULT_IMAGE.url;
@@ -38,7 +38,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
       return (
         <div className="relative w-full h-full aspect-video">
           <ReactPlayer
-            url={item.url} // Note: 'url' is correct for react-player, not 'src'
+            url={item.url}
             width="100%"
             height="100%"
             controls
@@ -48,16 +48,15 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
                 playerVars: { 
                   showinfo: 1, 
                   rel: 0,
-                  modestbranding: 1, // Hide YouTube logo
+                  modestbranding: 1,
                 },
               },
               file: {
                 attributes: {
-                  controlsList: 'nodownload' // Disable download option
+                  controlsList: 'nodownload'
                 }
               }
             }}
-            fallback={<div className="w-full h-full bg-gray-200 flex items-center justify-center">Loading video...</div>}
           />
         </div>
       );
@@ -77,8 +76,10 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
         }}
         className="rounded-lg"
         grabCursor={true}
-        preloadImages={false}
-        lazy={true}
+        lazy={{
+          loadPrevNext: true,
+          loadPrevNextAmount: 1,
+        }}
         style={{
           '--swiper-navigation-color': '#000',
           '--swiper-pagination-color': '#000',
