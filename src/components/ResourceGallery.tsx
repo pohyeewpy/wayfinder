@@ -2,7 +2,7 @@
 import { ResourceGalleryItem } from '@/types/resources';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import ReactPlayer from 'react-player'; // Regular import
+import ReactPlayer from 'react-player';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -23,7 +23,7 @@ export default function ResourceGallery({ items }: { items: ResourceGalleryItem[
       return (
         <Image
           src={item.url}
-          alt={item.alt || 'Gallery image'}
+          alt="Gallery image" // Removed reference to item.alt
           className="w-full h-full object-cover"
           loading="lazy"
           width={1200}
