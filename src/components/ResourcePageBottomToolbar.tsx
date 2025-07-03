@@ -9,8 +9,8 @@ export default function ResourcePageBottomToolbar({
 }: {
   resource: Resource | null;
 }) {
-  if (!resource) return null;
-  const [open, setOpen] = useState(false);
+const [open, setOpen] = useState(false);
+if (!resource) return null;
 const content = resource.steps
   ? resource.steps
   : `
